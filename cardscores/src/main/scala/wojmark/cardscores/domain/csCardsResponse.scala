@@ -2,12 +2,10 @@ package wojmark.cardscores.domain
 
 object csCardsResponse {
 
-  object csCardsRresponse {
+  case class CsCardsResponse(
+      cardName: String,
+      apr: Double,
+      eligibility: Double
+  )
 
-    case class CsCardsRequest(
-        cardName: String,
-        apr: Double,
-        eligibility: Double
-    )
-  }
 }

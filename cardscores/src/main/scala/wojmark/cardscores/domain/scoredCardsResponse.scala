@@ -1,6 +1,6 @@
 package wojmark.cardscores.domain
 
-object scoredCardsResonse {
+object scoredCardsResponse {
 
   case class ScoredCardsResponse(
       card: String,

@@ -1,23 +1,45 @@
 package wojmark.cardscores
 
+//import wojmark.cardscores.domain.cardScore.CardScore
+
 class BusinessLogicTests extends munit.FunSuite {
 
   test(
-    "Test calculation of the sorting score for Score Cards"
+    "Test calculation of the card score for CSCards (SuperSaver) "
   ) {
-    // Edge cases, eligibility zero, max, always have to be 3 decimals
+    val csCardScoreSuperSaver = CardScore.fromCSCards(21.4, 6.3)
+
+    assert(
+      (csCardScoreSuperSaver - 0.137).abs <= 0.001,
+      "CSCards (SuperSaver) score is incorrect"
+    )
   }
 
   test(
-    "Test calculation of the sorting score for CSCards"
+    "Test calculation of the card score for CSCards (Super Spender)"
   ) {
-    // Edge cases, eligibility zero, max, always have to be 3 decimals
+    val csCardScoreSuperSpender = CardScore.fromCSCards(19.2, 5.0)
+    assert(
+      (csCardScoreSuperSpender - 0.135).abs <= 0.001,
+      "CSCards (SuperSpender) score is incorrect"
+    )
+
   }
 
   test(
-    "Test conversion of Scored Cards response to Credit Scores Response in accordance to spec"
+    "Test calculation of the card score for ScoredCards (ScoreCard Builder)"
   ) {
-    //   {
+    val scoredCardsScoreCardBuilder = CardScore.fromScoredCards(19.4, 0.8)
+    assert(
+      (scoredCardsScoreCardBuilder - 0.212).abs <= 0.001,
+      "CSCards (SuperSpender) score is incorrect"
+    )
+  }
+}
+//   test(
+//     "Test conversion of Scored Cards response to Credit Scores Response in accordance to spec"
+//   ) {
+//   {
 //     "card": "ScoredCard Builder",
 //     "apr": 19.4,
 //     "approvalRating": 0.8
@@ -29,12 +51,12 @@ class BusinessLogicTests extends munit.FunSuite {
 //     "apr": 19.4,
 //     "cardScore": 0.212
 //   },
-  }
+//}
 
-  test(
-    "Test conversion of CSCards response to Credit Scores Response in accordance to spec"
-  ) {
-//       {
+//   test(
+//     "Test conversion of CSCards response to Credit Scores Response in accordance to spec"
+//   ) {
+// //       {
 //     "cardName": "SuperSaver Card",
 //     "apr": 21.4,
 //     "eligibility": 6.3
@@ -61,5 +83,5 @@ class BusinessLogicTests extends munit.FunSuite {
 
 //   }
 
-  }
-}
+//   }
+// }
