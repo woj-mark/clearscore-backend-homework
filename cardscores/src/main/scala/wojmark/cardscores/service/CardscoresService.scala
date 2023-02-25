@@ -7,6 +7,7 @@ import org.http4s.dsl.io.POST
 import org.http4s.Uri
 import cats.implicits._
 import org.http4s.headers._
+import wojmark.cardscores.Config
 
 import wojmark.cardscores.domain.cardsRequest.CardsRequest
 import wojmark.cardscores.domain.cardsResponse.CardsResponse
@@ -17,7 +18,7 @@ import wojmark.cardscores.domain.scoredCardsResponse.ScoredCardsResponse
 
 import wojmark.cardscores.CardScore
 import org.http4s.Headers
-import org.http4s.ProductId
+//import org.http4s.ProductId
 
 trait CardsService[F[_]] {
   def getScoreCards(cardScoreRequest: CardsRequest): F[List[CardsResponse]]
@@ -60,14 +61,14 @@ object CardsService {
       val dsl: Http4sClientDsl[F] = new Http4sClientDsl[F] {}
       import dsl._
 
-      def getScoreCards(cc: CardsRequest): F[List[CardsResponse]] = {
+      def getScoreCards(cardReq: CardsRequest): F[List[CardsResponse]] = {
 
         // Composing  request to the partners
         val csCardsRequest: CsCardsRequest =
-          CsCardsRequest(cc.name, cc.creditScore)
+          CsCardsRequest(cardReq.name, cardReq.creditScore)
 
         val scoredCardsRequest: ScoredCardsRequest =
-          ScoredCardsRequest(cc.name, cc.creditScore, cc.salary)
+          ScoredCardsRequest(cardReq.name, cardReq.creditScore, cardReq.salary)
 
         // Helper function to sort credit cards for the /creditCards API response
         def sortCreditCards(
@@ -81,21 +82,27 @@ object CardsService {
             POST(
               csCardsRequest,
               csCardsEndpoint,
-              headers = Headers(`User-Agent`(ProductId("wojmark-cardscores")))
+              headers =
+                Headers(`User-Agent`(Config.getProductId("USER_AGENT_ID")))
             )
           )
           scoredCards <- client.expect[List[ScoredCardsResponse]](
             POST(
               scoredCardsRequest,
               scoredCardsEndpoint,
-              headers = Headers(`User-Agent`(ProductId("wojmark-cardscores")))
+              headers =
+                Headers(`User-Agent`(Config.getProductId("USER_AGENT_ID")))
             )
           )
 
-          creditCardsCombined = csCards.map(csCardsToCreditCard) ++ scoredCards
-            .map(scoredCardsToCreditCard)
+          csCreditCards = csCards.map(csCards => csCardsToCreditCard(csCards))
+          scoredCardsCreditCards = scoredCards.map(scCards =>
+            scoredCardsToCreditCard(scCards)
+          )
 
-          creditCardsCombinedSorted = sortCreditCards(creditCardsCombined)
+          creditCardsCombinedSorted = sortCreditCards(
+            csCreditCards ++ scoredCardsCreditCards
+          )
 
         } yield creditCardsCombinedSorted
 

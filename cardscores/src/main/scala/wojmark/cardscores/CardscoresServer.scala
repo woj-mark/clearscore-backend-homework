@@ -1,11 +1,12 @@
 package wojmark.cardscores
 
-import org.http4s._
+//import org.http4s._
 import cats.effect.Async
-import com.comcast.ip4s._
+//import com.comcast.ip4s._
 import org.http4s.ember.client.EmberClientBuilder
 import org.http4s.ember.server.EmberServerBuilder
 import org.http4s.implicits._
+
 //Renaming imports to avoid namespace collisions/confusion
 import org.http4s.server.middleware.{Logger => ServerLogger}
 import org.http4s.client.middleware.{Logger => ClientLogger}
@@ -22,40 +23,16 @@ object CardscoresServer {
       // Instantiating Ember client
       client <- EmberClientBuilder.default[F].build
 
-      // Logging middleware to enable logging client responses & requests
+      // Logging middleware to enable logging client's requests & responses
       clientWithLogger = ClientLogger(logHeaders = true, logBody = true)(
         client
       )
 
       creditCardsAlgebra = CardsService.implementService[F](
         clientWithLogger,
-        // uri"https://app.clearscore.com/api/global/backend-tech-test/v1/cards",
-        Uri
-          .fromString(
-            sys.env.getOrElse(
-              "CSCARDS_ENDPOINT",
-              "https://app.clearscore.com/api/global/backend-tech-test/v1/cards"
-            )
-          )
-          .getOrElse(
-            uri"https://app.clearscore.com/api/global/backend-tech-test/v1/cards"
-          ),
-        Uri
-          .fromString(
-            sys.env.getOrElse(
-              "SCOREDCARDS_ENDPOINT",
-              "https://app.clearscore.com/api/global/backend-tech-test/v2/creditcards"
-            )
-          )
-          .getOrElse(
-            uri"https://app.clearscore.com/api/global/backend-tech-test/v2/creditcards"
-          )
-        // (Uri.fromString(sys.env.get("CSCARDS_ENDPOINT").get).getOrElse(uri"https://app.clearscore.com/api/global/backend-tech-test/v1/cards")),
-        // uri"https://app.clearscore.com/api/global/backend-tech-test/v2/creditcards"
+        Config.getUriByServiceName("CSCARDS_ENDPOINT"),
+        Config.getUriByServiceName("SCOREDCARDS_ENDPOINT")
       )
-
-      // uri"https://app.clearscore.com/api/global/backend-tech-test/v1/cards",
-      // uri"https://app.clearscore.com/api/global/backend-tech-test/v2/creditcards"
 
       // Combine Service Routes into an HttpApp.
       // Can also be done via a Router if you
@@ -71,9 +48,9 @@ object CardscoresServer {
       _ <-
         EmberServerBuilder
           .default[F]
-          .withHost(ipv4"0.0.0.0")
+          .withHost(Config.getHost("HOST_ADDRESS"))
           .withPort(
-            Port.fromString(sys.env.getOrElse("HTTP_PORT", "8080")).get
+            Config.getPort("HTTP_PORT")
           )
           .withHttpApp(finalHttpApp)
           .build
