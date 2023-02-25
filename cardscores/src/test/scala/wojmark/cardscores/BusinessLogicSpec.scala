@@ -10,7 +10,7 @@ class BusinessLogicTests extends munit.FunSuite {
     val csCardScoreSuperSaver = CardScore.fromCSCards(21.4, 6.3)
 
     assert(
-      (csCardScoreSuperSaver - 0.137).abs <= 0.001,
+      csCardScoreSuperSaver == 0.137,
       "CSCards (SuperSaver) score is incorrect"
     )
   }
@@ -20,7 +20,7 @@ class BusinessLogicTests extends munit.FunSuite {
   ) {
     val csCardScoreSuperSpender = CardScore.fromCSCards(19.2, 5.0)
     assert(
-      (csCardScoreSuperSpender - 0.135).abs <= 0.001,
+      csCardScoreSuperSpender == 0.135,
       "CSCards (SuperSpender) score is incorrect"
     )
 
@@ -31,7 +31,7 @@ class BusinessLogicTests extends munit.FunSuite {
   ) {
     val scoredCardsScoreCardBuilder = CardScore.fromScoredCards(19.4, 0.8)
     assert(
-      (scoredCardsScoreCardBuilder - 0.212).abs <= 0.001,
+      scoredCardsScoreCardBuilder == 0.212,
       "CSCards (SuperSpender) score is incorrect"
     )
   }
@@ -42,7 +42,7 @@ class BusinessLogicTests extends munit.FunSuite {
 //   {
 //     "card": "ScoredCard Builder",
 //     "apr": 19.4,
-//     "approvalRating": 0.8
+//     "approvalRating": 0.8`
 //   }
 
 // {
