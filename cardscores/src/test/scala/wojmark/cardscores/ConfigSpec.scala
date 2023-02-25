@@ -7,7 +7,7 @@ import org.http4s._
 
 //import wojmark.cardscores.domain.cardScore.CardScore
 
-class ConfigLogicTests extends munit.FunSuite {
+class ConfigSpec extends munit.FunSuite {
 
   test(
     "Test if getPort returns a Port:8080 if port not provided in env variables/ or not existing "

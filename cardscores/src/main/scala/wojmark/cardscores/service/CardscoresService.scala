@@ -48,6 +48,15 @@ object CardsService {
     )
   }
 
+  // Helper function to sort credit cards for the /creditCards API response
+  def sortCreditCards(
+      creditCards: List[CardsResponse]
+  ): List[CardsResponse] = {
+
+    val reverseOrder = Ordering[Double].reverse
+    creditCards.sortBy(card => card.cardScore)(reverseOrder)
+  }
+
 //Function implement service- this will contain  a function which will handle the whole API request logic
 //It will receive the request to /creditcards API and parse them to the client
 
@@ -69,13 +78,6 @@ object CardsService {
 
         val scoredCardsRequest: ScoredCardsRequest =
           ScoredCardsRequest(cardReq.name, cardReq.creditScore, cardReq.salary)
-
-        // Helper function to sort credit cards for the /creditCards API response
-        def sortCreditCards(
-            creditCards: List[CardsResponse]
-        ): List[CardsResponse] = {
-          creditCards.sortBy(_.cardScore)(Ordering[Double].reverse)
-        }
 
         for {
           csCards <- client.expect[List[CsCardsResponse]](
