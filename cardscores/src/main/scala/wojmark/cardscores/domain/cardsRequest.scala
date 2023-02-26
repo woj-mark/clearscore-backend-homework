@@ -12,6 +12,10 @@ import io.circe.refined._
 import io.circe._
 import io.circe.generic.semiauto._
 import eu.timepit.refined.collection.NonEmpty
+//import eu.timepit.refined.numeric._
+import eu.timepit.refined.auto._
+import wojmark.cardscores.types.types.ZeroToSevenHundred
+
 
 //import eu.timepit.refined.types.numeric.NonNegInt
 //import eu.timepit.refined.types.string.NonEmptyString
@@ -24,7 +28,7 @@ object cardsRequest {
 
   case class CardsRequest(
        name: String Refined NonEmpty,
-      creditScore: Int,
+      creditScore: Int Refined ZeroToSevenHundred,
       salary: Int Refined NonNegative
   )
 
