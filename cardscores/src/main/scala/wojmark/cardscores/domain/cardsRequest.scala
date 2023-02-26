@@ -1,24 +1,14 @@
 package wojmark.cardscores.domain
 
-// import cats.implicits._
-// import eu.timepit.refined.cats.syntax._
-// import eu.timepit.refined.refineV
+
 import eu.timepit.refined.api.Refined
-//import eu.timepit.refined.boolean.Or
-//import eu.timepit.refined.string.{IPv4, IPv6}
 import eu.timepit.refined.numeric.NonNegative
-//import eu.timepit.refined.collection.{ NonEmpty}
 import io.circe.refined._ 
 import io.circe._
 import io.circe.generic.semiauto._
 import eu.timepit.refined.collection.NonEmpty
-//import eu.timepit.refined.numeric._
 import eu.timepit.refined.auto._
 import wojmark.cardscores.types.types.ZeroToSevenHundred
-
-
-//import eu.timepit.refined.types.numeric.NonNegInt
-//import eu.timepit.refined.types.string.NonEmptyString
 
 //As defined in the Swagger API documentation
 //Currently using Scala basic types for name, credit score and salary

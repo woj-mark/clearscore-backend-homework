@@ -1,13 +1,10 @@
 package wojmark.cardscores
 
-//import org.http4s._
 import cats.effect.Async
-//import com.comcast.ip4s._
 import org.http4s.ember.client.EmberClientBuilder
 import org.http4s.ember.server.EmberServerBuilder
 import org.http4s.implicits._
-// import io.circe.refined._
-// import io.circe.literal._
+
 
 //Renaming imports to avoid namespace collisions/confusion
 import org.http4s.server.middleware.{Logger => ServerLogger}

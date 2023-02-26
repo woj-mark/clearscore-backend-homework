@@ -7,11 +7,6 @@ import eu.timepit.refined.collection.NonEmpty
 import io.circe.refined._ 
 import wojmark.cardscores.types.types.ZeroToSevenHundred
 import eu.timepit.refined.api.Refined
-//import eu.timepit.refined.auto._
-//import wojmark.cardscores.domain.scoredCardsRequest.ZeroToSevenHundred
-//import eu.timepit.refined.types.string.NonEmptyString
-
-
 
 object csCardsRequest {
 
