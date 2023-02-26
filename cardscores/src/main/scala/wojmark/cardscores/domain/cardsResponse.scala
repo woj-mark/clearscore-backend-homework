@@ -1,9 +1,11 @@
 package wojmark.cardscores.domain
 
+
 object cardsResponse {
-  // As defined in the Swagger API documentation
-//Currently using Scala basic types for name, credit score and salary
-//TO DO: use Refined to contrain the types for the parameters
+  
+/**
+ * Data model for CreditCardResponse from Swagger definition of the /creditCards microservice.
+*/
 
   case class CardsResponse(
       provider: String,

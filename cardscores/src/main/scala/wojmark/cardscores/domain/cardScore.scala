@@ -2,6 +2,9 @@ package wojmark.cardscores
 
 object CardScore {
 
+  //Implementation of the calculation of the cardScore from different partners
+  // in accordance with the task specification.
+
   /** ASSUMPTION: I recognised that the returning cardScore are returned with
     * precision to 3 significant figures (digitts) as well as rounded using
     * floor function. For example, equation gives a result of 0.21256244 and the

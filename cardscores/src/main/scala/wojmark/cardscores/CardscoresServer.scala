@@ -33,15 +33,11 @@ object CardscoresServer {
         Config.getUriByServiceName("SCOREDCARDS_ENDPOINT")
       )
 
-      // Combine Service Routes into an HttpApp.
-      // Can also be done via a Router if you
-      // want to extract segments not checked
-      // in the underlying routes.
-      httpApp = (
+            httpApp = (
         CardscoresRoutes.creditCardRoutes[F](creditCardsAlgebra)
       ).orNotFound
 
-      // With Middlewares in place
+      // A logger for the Server side
       finalHttpApp = ServerLogger.httpApp(true, true)(httpApp)
 
       _ <-

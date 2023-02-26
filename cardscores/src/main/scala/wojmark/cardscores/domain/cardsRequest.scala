@@ -10,11 +10,15 @@ import eu.timepit.refined.collection.NonEmpty
 import eu.timepit.refined.auto._
 import wojmark.cardscores.types.types.ZeroToSevenHundred
 
-//As defined in the Swagger API documentation
-//Currently using Scala basic types for name, credit score and salary
-//TO DO: use Refined to contrain the types for the parameters
+
 
 object cardsRequest {
+
+/**
+ * Data model for CreditCardRequest from Swagger definition of the /creditCards microservice.
+ * Refined library used to provide compile-time validation of the inputs in accordance with the
+ * rules defined in Swagger definition for partner's microservices
+ */
 
   case class CardsRequest(
        name: String Refined NonEmpty,
@@ -22,6 +26,7 @@ object cardsRequest {
       salary: Int Refined NonNegative
   )
 
-      implicit val encoder: Encoder[CardsRequest] =  deriveEncoder[CardsRequest]
+  // Encoding and decoding rules for the CardsRequest (with circe)
+    implicit val encoder: Encoder[CardsRequest] =  deriveEncoder[CardsRequest]
     implicit val decoder: Decoder[CardsRequest] =  deriveDecoder[CardsRequest]
 }

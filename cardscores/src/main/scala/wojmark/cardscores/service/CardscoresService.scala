@@ -19,13 +19,24 @@ import wojmark.cardscores.domain.scoredCardsResponse.ScoredCardsResponse
 import wojmark.cardscores.CardScore
 import org.http4s.Headers
 
+//Defines a higher-level interface fot the CardsService implementation
 trait CardsService[F[_]] {
   def getScoreCards(cardScoreRequest: CardsRequest): F[List[CardsResponse]]
 }
 
+//Implementation of the CardsService module
+//CardsService handles the business logic of the /creditCards microservice
+//It fetches the responses from the partner microservices wrapped around an effect and applies the data transformation 
+// on the obtained data to be returned as a response exposed in the HTTP Routes in a POST method
 object CardsService {
+
+  //Enables creating CardsService by implicitly resolving an instance of CardsService[F]
+  //For example, if if there is an implicit CardsService[IO] in scope, an instance of CardsService[IO] 
+  //can be created
   def apply[F[_]](implicit cc: CardsService[F]): CardsService[F] = cc
 
+
+  //A helper method to create instance of CardsResponse from CSCardsResponse
   def csCardsToCreditCard(csCardsResponse: CsCardsResponse): CardsResponse = {
     CardsResponse(
       "CSCards",
@@ -35,6 +46,7 @@ object CardsService {
     )
   }
 
+  //A helper method to create instance of CardsResponse from ScoredCardsResponse
   def scoredCardsToCreditCard(scoredCardsResponse: ScoredCardsResponse) = {
     CardsResponse(
       "ScoredCards",
@@ -47,17 +59,16 @@ object CardsService {
     )
   }
 
-  // Helper function to sort credit cards for the /creditCards API response
+  // Helper method to sort credit cards for the /creditCards API response
   def sortCreditCards(
       creditCards: List[CardsResponse]
   ): List[CardsResponse] = {
 
+    //Descending order, from highest to lowest
     val reverseOrder = Ordering[Double].reverse
+
     creditCards.sortBy(card => card.cardScore)(reverseOrder)
   }
-
-//Function implement service- this will contain  a function which will handle the whole API request logic
-//It will receive the request to /creditcards API and parse them to the client
 
   def implementService[F[_]: Concurrent](
       client: Client[F],
@@ -71,14 +82,17 @@ object CardsService {
 
       def getScoreCards(cardReq: CardsRequest): F[List[CardsResponse]] = {
 
-        // Composing  request to the partners
+        // Composing  requests to the partner microservices
         val csCardsRequest: CsCardsRequest =
           CsCardsRequest(cardReq.name, cardReq.creditScore)
 
         val scoredCardsRequest: ScoredCardsRequest =
           ScoredCardsRequest(cardReq.name, cardReq.creditScore, cardReq.salary)
 
+        
         for {
+
+          //Gets an F-wrapped list of CsCardsResponses from CsCards microservice
           csCards <- client.expect[List[CsCardsResponse]](
             POST(
               csCardsRequest,
@@ -87,6 +101,8 @@ object CardsService {
                 Headers(`User-Agent`(Config.getProductId("USER_AGENT_ID")))
             )
           )
+
+          //Gets an F-wrapped list of CsCardsResponses from ScoredCards microservice
           scoredCards <- client.expect[List[ScoredCardsResponse]](
             POST(
               scoredCardsRequest,
@@ -96,11 +112,13 @@ object CardsService {
             )
           )
 
+          //Converting the instances of the microservice responses to CreditCardResponse instance
           csCreditCards = csCards.map(csCards => csCardsToCreditCard(csCards))
           scoredCardsCreditCards = scoredCards.map(scCards =>
             scoredCardsToCreditCard(scCards)
           )
 
+          //Combines the F-wrapped lists of the CreditCardResponse and sort them accordingly
           creditCardsCombinedSorted = sortCreditCards(
             csCreditCards ++ scoredCardsCreditCards
           )
