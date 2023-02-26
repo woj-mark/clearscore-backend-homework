@@ -15,6 +15,7 @@ import wojmark.cardscores.domain.csCardsRequest.CsCardsRequest
 import wojmark.cardscores.domain.csCardsResponse.CsCardsResponse
 import wojmark.cardscores.domain.scoredCardsRequest.ScoredCardsRequest
 import wojmark.cardscores.domain.scoredCardsResponse.ScoredCardsResponse
+//import wojmark.cardscores.domain.errors.illegalClientRequestError.IllegalClientRequestError
 
 import wojmark.cardscores.CardScore
 import org.http4s.Headers
@@ -47,6 +48,37 @@ object CardsService {
       )
     )
   }
+
+  // // Composing  request to the partners
+  // def composeValidatedCsCardsRequest(
+  //     cardReq: CardsRequest
+  // ): Either[IllegalClientRequestError, CsCardsRequest] = {
+
+  //   if (cardReq.creditScore < 0 || cardReq.creditScore > 700) {
+  //     Left(IllegalClientRequestError("Illegal creditscore provided"))
+  //   } else if (cardReq.salary < 0) {
+  //     Left(IllegalClientRequestError("Illegal (negative) salaries provided"))
+  //   } else if (cardReq.name.isEmpty()) {
+  //     Left(IllegalClientRequestError("Illegal inputs- no name provided"))
+  //   } else {
+  //     Right(CsCardsRequest(cardReq.name, cardReq.creditScore))
+  //   }
+  // }
+
+  // def composeValidatedScoredCardsRequest(
+  //     cardReq: CardsRequest
+  // ): Either[IllegalClientRequestError, ScoredCardsRequest] =
+  //   if (cardReq.creditScore < 0 || cardReq.creditScore > 700) {
+  //     Left(IllegalClientRequestError("Illegal creditscore provided"))
+  //   } else if (cardReq.salary < 0) {
+  //     Left(IllegalClientRequestError("Illegal (negative) salaries provided"))
+  //   } else if (cardReq.name.isEmpty()) {
+  //     Left(IllegalClientRequestError("Illegal inputs- no name provided"))
+  //   } else {
+  //     Right(
+  //       ScoredCardsRequest(cardReq.name, cardReq.creditScore, cardReq.salary)
+  //     )
+  //   }
 
   // Helper function to sort credit cards for the /creditCards API response
   def sortCreditCards(

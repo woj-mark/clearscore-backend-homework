@@ -29,6 +29,10 @@ object CardscoresRoutes {
     val dsl = new Http4sDsl[F] {}
     import dsl._
     HttpRoutes.of[F] { case request @ POST -> Root / "creditCards" =>
+
+   
+
+    
       request.decodeJson[CardsRequest].attempt.flatMap {
         case Right(correctRequest) =>
           for {
@@ -46,3 +50,4 @@ object CardscoresRoutes {
     }
   }
 }
+

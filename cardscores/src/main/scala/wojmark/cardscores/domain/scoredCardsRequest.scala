@@ -3,13 +3,18 @@ package wojmark.cardscores.domain
 import io.circe.generic.auto._
 import org.http4s._
 import org.http4s.circe._
+import eu.timepit.refined.api.Refined
+import io.circe.refined._ 
+//import io.circe._
+//import io.circe.generic.semiauto._
+import eu.timepit.refined.numeric.NonNegative
 
 object scoredCardsRequest {
 
   case class ScoredCardsRequest(
       name: String,
       score: Int,
-      salary: Int
+      salary: Int Refined NonNegative
   )
 
   implicit def scoredCardsRequestEntityEncoder[F[_]]
