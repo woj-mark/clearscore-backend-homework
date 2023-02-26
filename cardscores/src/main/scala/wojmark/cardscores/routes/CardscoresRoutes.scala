@@ -11,7 +11,7 @@ import wojmark.cardscores.service.CardsService
 import wojmark.cardscores.domain.cardsRequest.CardsRequest
 
 /**
- * Definition of the HTTP routes for handling the POST requests to /creditCards 
+ * Definition of the HTTP routes for handling the POST requests to /creditCards API endpoint 
  */
 object CardscoresRoutes {
 
