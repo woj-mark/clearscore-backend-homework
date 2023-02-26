@@ -5,7 +5,6 @@ import org.http4s.Uri
 import org.http4s.implicits._
 import org.http4s._
 
-//import wojmark.cardscores.domain.cardScore.CardScore
 
 class ConfigSpec extends munit.FunSuite {
 

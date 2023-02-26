@@ -29,7 +29,7 @@ object CardscoresRoutes {
         case Left(incorrectRequest) =>
           incorrectRequest.getCause match {
             case failure: DecodeFailure => BadRequest(failure.message)
-            case _                      => BadRequest(incorrectRequest.toString)
+            case _                      => BadRequest("The request contained invalid parameters")
           }
 
       }
