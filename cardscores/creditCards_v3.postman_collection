@@ -439,13 +439,13 @@
 			},
 			"response": [
 				{
-					"name": "Credit Score = 700 : 200 OK",
+					"name": "Credit Score = 700 -  Expected 200 OK",
 					"originalRequest": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"name\": \"Ada Lovelace\",\r\n  \"creditScore\": 0,\r\n  \"salary\": 28000\r\n}",
+							"raw": "{\r\n  \"name\": \"Ada Lovelace\",\r\n  \"creditScore\": 700,\r\n  \"salary\": 28000\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -470,7 +470,7 @@
 					"header": [
 						{
 							"key": "Date",
-							"value": "Sun, 26 Feb 2023 17:22:53 GMT"
+							"value": "Sun, 26 Feb 2023 21:33:33 GMT"
 						},
 						{
 							"key": "Connection",
