@@ -16,10 +16,15 @@ lazy val root = (project in file("."))
       "org.http4s" %% "http4s-circe" % Http4sVersion,
       "org.http4s" %% "http4s-dsl" % Http4sVersion,
       "io.circe" %% "circe-generic" % CirceVersion,
+"io.circe" %% "circe-core" % CirceVersion,
+  "io.circe" %% "circe-parser" % CirceVersion,
+  "io.circe" %% "circe-refined" % CirceVersion,
+  "io.circe" %% "circe-literal" % CirceVersion,
       "org.scalameta" %% "munit" % MunitVersion % Test,
       "org.typelevel" %% "munit-cats-effect-3" % MunitCatsEffectVersion % Test,
       "ch.qos.logback" % "logback-classic" % LogbackVersion % Runtime,
-      "org.scalameta" %% "svm-subs" % "20.2.0"
+      "org.scalameta" %% "svm-subs" % "20.2.0",
+      "eu.timepit" %% "refined" % "0.9.15"
     ),
     addCompilerPlugin(
       "org.typelevel" %% "kind-projector" % "0.13.2" cross CrossVersion.full

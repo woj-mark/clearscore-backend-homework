@@ -11,6 +11,8 @@ import eu.timepit.refined.numeric.NonNegative
 import io.circe.refined._ 
 import io.circe._
 import io.circe.generic.semiauto._
+import eu.timepit.refined.collection.NonEmpty
+
 //import eu.timepit.refined.types.numeric.NonNegInt
 //import eu.timepit.refined.types.string.NonEmptyString
 
@@ -21,7 +23,7 @@ import io.circe.generic.semiauto._
 object cardsRequest {
 
   case class CardsRequest(
-      name: String,
+       name: String Refined NonEmpty,
       creditScore: Int,
       salary: Int Refined NonNegative
   )
