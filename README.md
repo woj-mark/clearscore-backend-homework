@@ -1,4 +1,4 @@
-# ClearScore-Backend Technical Testhomework
+# ClearScore-Backend Technical Test
 
 ## Overview
 This repository contains my implementation a microservice collating financial products from a small selection of partners.
