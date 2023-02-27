@@ -8,7 +8,7 @@ I decided to build the microservice in Scala 2.13 using libraries from Scala Typ
 - **circe** for JSON parsing;
 - **refined** to validate input data in accordance with the requirements of the Swagger documentation.
 
-I also adopted **MUnit** to perform unit testing, whereas I used **Postman** to test whether the HTTP routes. The application is built using **sbt** (1.8).
+I adopted TDD throughout- I used **MUnit** to perform unit testing as well **Postman** to test the HTTP routes. The application is built using **sbt** (1.8).
 
 
 ## Architecture and Design
