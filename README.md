@@ -10,7 +10,6 @@ I decided to build the microservice in **Scala 2.13** using libraries from Scala
 
 I adopted TDD throughout- I used **MUnit** to perform unit testing as well **Postman** to test the HTTP routes. The application is built using **sbt** (1.8).
 
-
 ## Architecture and Design
 The diagram below provides a high-level overview of the architecture of the Cardscores microservice.
 
@@ -50,6 +49,10 @@ As required in the task specification, I have enabled the `HTTP_PORT`, `CSCARDS_
 I have also decided to enable the user to configure the following environment variables:
 - `HOST_ADDRESS`- to confiure the IP address of the host; 
 - `USER_AGENT_ID`-  to configure the ProductId name of the user agent header sent in the POST request to partner API services.
+
+
+## How to run
+Please navigate to the route directory (`cardscores`) and simply run the `start.sh` script which should build the microservice. Please note that it is assumed that the user has [sbt](https://www.scala-sbt.org/) and [java](https://www.java.com/en/) installed on their machine.
 
 
 ## Testing
