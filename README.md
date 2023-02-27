@@ -34,7 +34,7 @@ I started by extracting the requirements provided in the task specification and 
 
 I adopted functional programming paradigm to arrange the code, model the data domain and implement business logic using algebraic data types. I have attempted to use tagless final pattern in Scala to organise the code responsibilities between the following modules:
 - `ClearScoreRoutes` - contains the /creditCards endpoint. The routes are linked to the business logic through an instances of HttpRoutes which uses a partial function to match an incoming HTTP request and produce an HTTP response with a side effect.
--`CreditCardsService`- contains the  implementation of the business logic for the /creditCards API endpoint, also defines the http4s Client (Ember) sending requests to the partner APIs. 
+- `CreditCardsService`- contains the  implementation of the business logic for the /creditCards API endpoint, also defines the http4s Client (Ember) sending requests to the partner APIs. 
 - `ClearScoreServer` - contains the implementation of the http4s server (Ember) which also acts as a Client (Ember) to the partner APIs. In the  server implementation (`Main.scala`), I'm using cats-effect `IO` monad to delay the evaluation of the "impure" effects till the "end of the world". I'm also using http4s (client and server) loggers for logging requests and responses.
 - `Config` - extracts the configurable parameters from the environment variables
 - `Domain`- defines the data models for the entities involved in the application (i.e. CardsResponse, ScoredCardsRequests etc.)
