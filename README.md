@@ -43,14 +43,14 @@ I adopted purely functional paradigm to arrange the code, model the data domain 
 It is the first time I have adopted this pure functional programming pattern and have enjoyed learning how to abtract the effects using cats-effect library. 
 
 ## Validation 
-By using the `refined` library at compile-time I have enabled returning the `400` Bad Request for illegal parameters provided in request to /creditCards for name (empty string), salary (negative integers or credit score (outside the  [0-700] range).
+By using the `refined` library at compile-time I have enabled returning the `400` Bad Request for illegal parameters provided in request to `/creditCards` for name (empty string), salary (negative integers or credit score (outside the  [0-700] range).
 
 ## Configuration
 As required in the task specification, I have enabled the `HTTP_PORT`, `CSCARDS_ENDPOINT` and `SCORECARDS_ENDPOINT` environment variables to be configures in the start.sh script.
 
 I have also decided to enable the user to configure the following environment variables:
-- `HOST_ADDRESS`- to confiure the IP address of the host 
-- `USER_AGENT_ID`-  to configure the ProductId name of the user agent header sent in the POST request to partner API services
+- `HOST_ADDRESS`- to confiure the IP address of the host; 
+- `USER_AGENT_ID`-  to configure the ProductId name of the user agent header sent in the POST request to partner API services.
 
 
 ## Testing
