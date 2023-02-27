@@ -57,7 +57,7 @@ Please navigate to the route directory (`cardscores`) and simply run the `start.
 
 ## Testing
 ### Unit Testing
-To run unit tests, please tun `sbt test` from the root directory.
+To run unit tests, please tun `sbt test` from the root directory (`cardscores').
 
 ### Testing HTTP Routes
 Though I have attempted to run HTTP route testing, I decided to use a method I am more familiar with due to the limited time contraints. I tested the routes using `Postman` on the running application to test whether the microservice returns correct responses for a range of legal and illegal user inputs (as defined in the Swagger documentation) . All the tests and responses are contained in the following Postman collection: [postman_collection](cardscores/creditCards_v4.postman_collection). Please refer to the following [link](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/) to see how to import the collection to your Postman app.
