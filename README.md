@@ -6,7 +6,7 @@ I decided to build the microservice in Scala 2.13 using libraries from Scala Typ
 - **http4s** for the http library;
 - **cats-effect** to handle side-effects in the microservice;
 - **circe** for to convert Scala case classes into a JSON string and vice versa (de/serialisation) by defining JSON encoders and decoders;
-- **refined** to validate input data in accordance with the requirements of the Swagger documentation.
+- **refined** to validate input data in accordance with the requirements of the Swagger documentation (at compile-time).
 
 I adopted TDD throughout- I used **MUnit** to perform unit testing as well **Postman** to test the HTTP routes. The application is built using **sbt** (1.8).
 
