@@ -2,7 +2,7 @@
 
 ## Overview
 This repository contains my implementation a microservice collating financial products from a small selection of partners.
-I decided to build the microservice in Scala 2.13 using libraries from Scala Typelevel ecosystem, which are adopted by ClearScore in building microservices:
+I decided to build the microservice in **Scala 2.13** using libraries from Scala **Typelevel** ecosystem, which are adopted by ClearScore in building microservices:
 - **http4s** for the http library;
 - **cats-effect** to handle side-effects in the microservice;
 - **circe** for to convert Scala case classes into a JSON string and vice versa (de/serialisation) by defining JSON encoders and decoders;
