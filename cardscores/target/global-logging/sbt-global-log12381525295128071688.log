@@ -1,0 +1,183 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.8.0 (Oracle Corporation Java 11.0.11)
+[debug] Load.defaultLoad until apply took 181.1806ms
+[debug]                       Load.loadUnit: plugins took 112.9297ms
+[debug]                       Load.loadUnit: defsScala took 0.3161ms
+[debug] [Loading] Scanning directory C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\project\project\project
+[debug]                         Load.loadUnit: mkEval took 10.5494ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\project\project\project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 15.9561 ms
+[info] loading settings for project cardscores-build-build-build from metals.sbt ...
+[debug]                           Load.resolveProject(cardscores-build-build-build) took 50.0508ms
+[debug]                         Load.loadTransitive: finalizeProject(Project(id cardscores-build-build-build, base: C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\project\project\project, plugins: List(<none>))) took 94.5235ms
+[debug] [Loading] Done in C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\project\project\project, returning: (cardscores-build-build-build)
+[debug]                       Load.loadUnit: loadedProjectsRaw took 346.6727ms
+[debug]                       Load.loadUnit: cleanEvalClasses took 9.8405ms
+[debug]                     Load.loadUnit(file:/C:/Users/User/Programming/Scala/clearscore-backend-homework/cardscores/project/project/project/, ...) took 477.4551ms
+[debug]                   Load.apply: load took 612.7687ms
+[debug]                   Load.apply: resolveProjects took 7.3065ms
+[debug]                   Load.apply: finalTransforms took 121.1456ms
+[debug]                   Load.apply: config.delegates took 17.0825ms
+[debug]                   Load.apply: Def.make(settings)... took 489.2761ms
+[debug]                   Load.apply: structureIndex took 116.9543ms
+[debug]                   Load.apply: mkStreams took 1.9202ms
+[info] loading project definition from C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\project\project\project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug]                 Load.loadUnit: plugins took 2598.6385ms
+[debug]                 Load.loadUnit: defsScala took 0.0094ms
+[debug] [Loading] Scanning directory C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\project\project
+[debug]                   Load.loadUnit: mkEval took 0.4014ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\project\project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(bloop.integrations.sbt.BloopPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(bloop.integrations.sbt.BloopPlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,bloop.integrations.sbt.BloopPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 5.6963 ms
+[info] loading settings for project cardscores-build-build from metals.sbt ...
+[debug]                     Load.resolveProject(cardscores-build-build) took 28.3781ms
+[debug]                   Load.loadTransitive: finalizeProject(Project(id cardscores-build-build, base: C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\project\project, plugins: List(<none>))) took 35.5007ms
+[debug] [Loading] Done in C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\project\project, returning: (cardscores-build-build)
+[debug]                 Load.loadUnit: loadedProjectsRaw took 89.1143ms
+[debug]                 Load.loadUnit: cleanEvalClasses took 1.9179ms
+[debug]               Load.loadUnit(file:/C:/Users/User/Programming/Scala/clearscore-backend-homework/cardscores/project/project/, ...) took 2692.2894ms
+[debug]             Load.apply: load took 2695.6967ms
+[debug]             Load.apply: resolveProjects took 0.1393ms
+[debug]             Load.apply: finalTransforms took 23.0485ms
+[debug]             Load.apply: config.delegates took 0.4055ms
+[debug]             Load.apply: Def.make(settings)... took 117.501ms
+[debug]             Load.apply: structureIndex took 43.5902ms
+[debug]             Load.apply: mkStreams took 0.0027ms
+[info] loading project definition from C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\project\project
+[debug] Evaluating tasks: bloopInstall
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[success] Generated .bloop\cardscores-build-build.json
+[success] Total time: 1 s, completed 27 Feb 2023, 08:07:24
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug]           Load.loadUnit: plugins took 4254.9671ms
+[debug]           Load.loadUnit: defsScala took 0.0147ms
+[debug] [Loading] Scanning directory C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\project
+[debug]             Load.loadUnit: mkEval took 0.2702ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(bloop.integrations.sbt.BloopPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(bloop.integrations.sbt.BloopPlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,bloop.integrations.sbt.BloopPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 1.8927 ms
+[info] loading settings for project cardscores-build from metals.sbt,plugins.sbt ...
+[debug]               Load.resolveProject(cardscores-build) took 19.3163ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id cardscores-build, base: C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\project, plugins: List(<none>))) took 21.8312ms
+[debug] [Loading] Done in C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\project, returning: (cardscores-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 82.627ms
+[debug]           Load.loadUnit: cleanEvalClasses took 2.9614ms
+[debug]         Load.loadUnit(file:/C:/Users/User/Programming/Scala/clearscore-backend-homework/cardscores/project/, ...) took 4342.3257ms
+[debug]       Load.apply: load took 4344.9484ms
+[debug]       Load.apply: resolveProjects took 0.1113ms
+[debug]       Load.apply: finalTransforms took 19.1178ms
+[debug]       Load.apply: config.delegates took 0.5946ms
+[debug]       Load.apply: Def.make(settings)... took 82.8511ms
+[debug]       Load.apply: structureIndex took 31.5872ms
+[debug]       Load.apply: mkStreams took 0.0027ms
+[info] loading project definition from C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\project
+[debug] Evaluating tasks: bloopInstall
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[success] Generated .bloop\cardscores-build.json
+[success] Total time: 1 s, completed 27 Feb 2023, 08:07:25
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug]     Load.loadUnit: plugins took 5841.0623ms
+[debug]     Load.loadUnit: defsScala took 0.005ms
+[debug] [Loading] Scanning directory C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores
+[debug]       Load.loadUnit: mkEval took 0.4148ms
+[debug] [Loading] Found root project root w/ remaining 
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(bloop.integrations.sbt.BloopPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(io.github.davidgregory084.TpolecatPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(spray.revolver.RevolverPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbtassembly.AssemblyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(bloop.integrations.sbt.BloopPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(io.github.davidgregory084.TpolecatPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(spray.revolver.RevolverPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbtassembly.AssemblyPlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,io.github.davidgregory084.TpolecatPlugin,bloop.integrations.sbt.BloopPlugin,sbt.plugins.SemanticdbPlugin,sbt.plugins.JUnitXmlReportPlugin,sbtassembly.AssemblyPlugin,spray.revolver.RevolverPlugin,sbt.plugins.MiniDependencyTreePlugin)
+[debug] Plugins.deducer#function took 2.501 ms
+[info] loading settings for project root from build.sbt ...
+[debug]         Load.resolveProject(root) took 82.6458ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id root, base: C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores, plugins: List(<none>))) took 86.738ms
+[debug] [Loading] Done in C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores, returning: (root)
+[debug]     Load.loadUnit: loadedProjectsRaw took 164.2225ms
+[debug]     Load.loadUnit: cleanEvalClasses took 1.9159ms
+[debug]   Load.loadUnit(file:/C:/Users/User/Programming/Scala/clearscore-backend-homework/cardscores/, ...) took 6009.3189ms
+[debug] Load.apply: load took 6041.6996ms
+[debug] Load.apply: resolveProjects took 0.1742ms
+[debug] Load.apply: finalTransforms took 35.4179ms
+[debug] Load.apply: config.delegates took 0.4956ms
+[debug] Load.apply: Def.make(settings)... took 97.0179ms
+[debug] Load.apply: structureIndex took 28.0915ms
+[debug] Load.apply: mkStreams took 0.0025ms
+[info] set current project to cardscores (in build file:/C:/Users/User/Programming/Scala/clearscore-backend-homework/cardscores/)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(notifyUsersAboutShell, None, None)
+[debug] > Exec(iflast shell, None, None)
+[debug] > Exec(run, None, None)
+[debug] Evaluating tasks: Compile / run
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 1 Scala source to C:\Users\User\Programming\Scala\clearscore-backend-homework\cardscores\target\scala-2.13\classes ...
+[info] done compiling
