@@ -30,14 +30,14 @@ The endpoints provided by the app are as follows:
 | POST | /creditScores   | Returns: `200` with list of collected cards, `400` if inputs are invalid/illegal or `500` if one of the partners is not available/down (please see Limitations paragraph for further comments)|
 
 ## Programming Approach 
-I adopted purely functional paradigm to arrange the code, model the data domain and implement business logic. I have attempted to use tagless final pattern in Scala to organise the code responsibilities between the following modules:
+I adopted functional programming paradigm to arrange the code, model the data domain and implement business logic using algebraic data types ( mostlt product types). I have attempted to use tagless final pattern in Scala to organise the code responsibilities between the following modules:
 - `ClearScoreRoutes` - contains the /creditCards endpoint. The routes are linked to the business logic through an instances of HttpRoutes which uses a partial function to match an incoming HTTP request and produce an HTTP response with a side effect.
 -`CreditCardsService`- contains the  implementation of the business logic for the /creditCards API endpoint, also defines the http4s Client (Ember) sending requests to the partner APIs. 
 - `ClearScoreServer` - contains the implementation of the http4s server (Ember) which also acts as a Client (Ember) to the partner APIs. In the  server implementation (`Main.scala`), I'm using cats-effect `IO` monad to delay the evaluation of the "impure" effects till the "end of the world". I'm also using http4s (client and server) loggers for logging requests and responses.
 - `Config` - extracts the configurable parameters from the environment variables
 - `Domain`- defines the data models for the entities involved in the application (i.e. CardsResponse, ScoredCardsRequests etc.)
 
-It is the first time I have attempted to adopt the Tagless Final programming pattern and have enjoyed learning how to abtract the effects using cats-effect library. 
+It is the first time I have attempted to adopt the Tagless Final programming pattern and I have enjoyed learning how to abtract the effects using cats-effect library. 
 
 ## Validation 
 By using the `refined` library at compile-time I have enabled returning the `400` Bad Request for illegal parameters provided in request to `/creditCards` for name (empty string), salary (negative integers or credit score (outside the  [0-700] range).
