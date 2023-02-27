@@ -30,7 +30,7 @@ The endpoints provided by the app are as follows:
 | POST | /creditScores   | Returns: `200` with list of collected cards, `400` if inputs are invalid/illegal or `500` if one of the partners is not available/down (please see Limitations paragraph for further comments)|
 
 ## Programming Approach 
-I adopted functional programming paradigm to arrange the code, model the data domain and implement business logic using algebraic data types ( mostlt product types). I have attempted to use tagless final pattern in Scala to organise the code responsibilities between the following modules:
+I adopted functional programming paradigm to arrange the code, model the data domain and implement business logic using algebraic data types. I have attempted to use tagless final pattern in Scala to organise the code responsibilities between the following modules:
 - `ClearScoreRoutes` - contains the /creditCards endpoint. The routes are linked to the business logic through an instances of HttpRoutes which uses a partial function to match an incoming HTTP request and produce an HTTP response with a side effect.
 -`CreditCardsService`- contains the  implementation of the business logic for the /creditCards API endpoint, also defines the http4s Client (Ember) sending requests to the partner APIs. 
 - `ClearScoreServer` - contains the implementation of the http4s server (Ember) which also acts as a Client (Ember) to the partner APIs. In the  server implementation (`Main.scala`), I'm using cats-effect `IO` monad to delay the evaluation of the "impure" effects till the "end of the world". I'm also using http4s (client and server) loggers for logging requests and responses.
@@ -56,6 +56,12 @@ To run unit tests, please tun `sbt test` from the root directory.
 
 ### Testing HTTP Routes
 Though I have attempted to run HTTP route testing, I decided to use a method I am more familiar with due to the limited time contraints. I tested the routes using `Postman` on the running application to test whether the microservice returns correct responses for a range of legal and illegal user inputs (as defined in the Swagger documentation) . All the tests and responses are contained in the following Postman collection: [postman_collection](cardscores/creditCards_v3.postman_collection). Please refer to the following [link](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/) to see how to import the collection to your Postman app.
+
+## Engineering Assumptions
+I have made a couple of assumptions, which I have document here:
+- I identified that the returning cardScore are returned with precision to 3 significant figures (digits) as well as rounded using floor function. For example, equation gives a result of 0.21256244 and the creditCardsResponse shall return 0.212. For this reason, I'm using floor rounding and return 3 significant figures to obtain the CreditScore. The documentation does not confirm whether this is a required behaviour, but it is inferred from the sample of results available in the specification.
+- I identified that if one of the partner services fails, it would be still expected to see the result obtaiened from the running service (rather than returning 500 Status). I believe such fault-tolerant behaviour would be crucial  if the microservice is communicating with dozens of partners who are likely to fail very frequentlty. I have witnessed several failures of partners once visiting ClearScore office for an interview. However, I was not able to implement such behaviour in my application within the time constraints I had for this task. 
+    
 
 ## Deployment 
 I would use Github Actions to perform CI/CD deployment of the microservice in the following steps:
