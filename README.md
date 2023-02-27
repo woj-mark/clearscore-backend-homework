@@ -29,7 +29,9 @@ The endpoints provided by the app are as follows:
 | ----- | --- | --- |
 | POST | /creditScores   | Returns: `200` with list of collected cards, `400` if inputs are invalid/illegal or `500` if one of the partners is not available/down (please see Limitations paragraph for further comments)|
 
-## Programming Approach 
+## Engineering Approach 
+I started by extracting the requirements provided in the task specification and Swagger documentation for the creditCards and partners' microservices. I developed a high-level [design](Requirements&Design/Untitled-2023-02-19-1637.excalidraw.png) of the microservice before I started wriring code
+
 I adopted functional programming paradigm to arrange the code, model the data domain and implement business logic using algebraic data types. I have attempted to use tagless final pattern in Scala to organise the code responsibilities between the following modules:
 - `ClearScoreRoutes` - contains the /creditCards endpoint. The routes are linked to the business logic through an instances of HttpRoutes which uses a partial function to match an incoming HTTP request and produce an HTTP response with a side effect.
 -`CreditCardsService`- contains the  implementation of the business logic for the /creditCards API endpoint, also defines the http4s Client (Ember) sending requests to the partner APIs. 
