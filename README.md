@@ -8,23 +8,19 @@ I decided to build the microservice in Scala 2.13 using libraries from Scala Typ
 - **circe** for JSON parsing;
 - **refined** to validate input data in accordance with the requirements of the Swagger documentation.
 
-I also adopted **MUnit** to perform unit testing, whereas I used **Postman** to test whether the HTTP routes.
-
-The application is built using **sbt**(1.8) and is running on host and port defined in the Config object.
+I also adopted **MUnit** to perform unit testing, whereas I used **Postman** to test whether the HTTP routes. The application is built using **sbt** (1.8).
 
 
-## Architecture
+## Architecture and Design
 The diagram below provides a high-level overview of the architecture of the Cardscores microservice.
 
  ![image](https://github.com/woj-mark/clearscore-backend-homework/blob/main/cardscores/architecture_schematic.JPG)
 
 ### HTTP Layer
-The HTTP layer exposes the `/creditCards` endpoint (defined in CardscoresRoutes module) which consumes user's inputs sent via POST request in JSON format and returns the the aggregated data from partner APIs.
+The HTTP layer exposes the `/creditCards` endpoint (defined in `CardscoresRoutes` module) which consumes user's inputs sent via HTTP POST request in JSON format and returns the the aggregated data from partner APIs. 
 
 ### Service Layer
-The service layer contains the `CardScoreService` which implements the business logic. It obtains the parsed user requests obtained via `CardscoresRoutes` and sends POST requests to the partner HTTP APIs. 
-
-It consequently computes the sorting scores for the obtained responses and returns the aggregated and sorted cardScores for each card obtained from partner APIs to be exposed via /creditCards endpoint.
+The service layer contains the `CardScoreService` which implements the business logic. It obtains the parsed user requests' object entities obtained via `CardscoresRoutes`. It consequently uses the data parsed from user requests to generate and send two HTTP POST requests to the partner HTTP APIs  (using http4s Ember client). It subsequently parses the responses from the partner APIs from the obtained JSON format into user response object entities. Finally, ut computes the sorting scores for the obtained response object entities and builds custom response which returned to the user via '/creditCards' endpoint.
 
 
 ## Endpoints
