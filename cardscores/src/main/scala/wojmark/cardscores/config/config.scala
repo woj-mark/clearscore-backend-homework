@@ -35,6 +35,7 @@ object Config {
           "https://app.clearscore.com/api/global/backend-tech-test/v1/cards"
         )
       )
+      //This is to be refactored (BAD PRACTICE)
       .getOrElse(
         uri"https://app.clearscore.com/api/global/backend-tech-test/v1/cards"
       )
@@ -48,6 +49,7 @@ object Config {
           "https://app.clearscore.com/api/global/backend-tech-test/v2/creditcards"
         )
       )
+      //This is to be refactored (BAD PRACTICE)
       .getOrElse(
         uri"https://app.clearscore.com/api/global/backend-tech-test/v2/creditcards"
       )
