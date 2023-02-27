@@ -27,7 +27,7 @@ The service layer contains the `CardScoreService` which implements the business 
 The endpoints provided by the app are as follows:
 | METHOD | URL    | DESCRIPTION    |
 | ----- | --- | --- |
-| POST | /creditScores   | Returns: `200` with list of collected cards, `400` if inputs are invalid/illegal or `500` if one of the partners is not available/down (see Limitations)|
+| POST | /creditScores   | Returns: `200` with list of collected cards, `400` if inputs are invalid/illegal or `500` if one of the partners is not available/down (please see Limitations paragraph for further comments)|
 
 ## Programming Style 
 I adopted purely functional paradigm to arrange the code, model the data domain and implement business logic. I have attempted to use tagless final pattern in Scala to organise the code responsibilities between the following modules:
