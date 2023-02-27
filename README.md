@@ -64,11 +64,11 @@ I have made a couple of assumptions, which I have document here:
     
 
 ## Deployment 
-I would use Github Actions to perform CI/CD deployment of the microservice in the following steps:
+I would use **Github Actions** to perform CI/CD deployment of the microservice in the following steps:
 - Firstly, I would start a pull request on GitHub and seek feedback and comments from fellow engineers. As part of the merging process (to Master/Production branch), the code would go through additional tests.
-- Subsequently, I would complete steps to create a Docker container, which is an isolated runtime environment for the microservice. I would start with generation of a docker image file which contains instructions for creating a container that can run on a Docker platform.
-- Thirdly, I would select a virtual machine, such as  Amazon Elastic Compute Cloud (EC2). I would publish the Docker image file to it and run it to build the Docker container.
-- Consequently, I would perform testing of the cloud-deployed microservice. I would test whether the '/creditCards' endpoint is returning correct responses using the aferomentioned Postman test collection. Additionally, if a front-end application sending POST request to the microservice is within my organisation, I would aim to perform integration testing.
-- In production, I would regularly monitor the real-time performance of the microservice by inspecting the log file. 
+- Subsequently, I would complete steps to create a **Docker container**, which is an isolated runtime environment for the microservice. I would start with generation of a **Docker image** file which contains instructions for creating a container that can run on a Docker platform.
+- Thirdly, I would select a virtual machine, such as  **Amazon Elastic Compute Cloud (EC2)**. I would publish the Docker image file to it and run it to build the Docker container.
+- Consequently, I would perform **testing** of the cloud-deployed microservice. I would test whether the '/creditCards' endpoint is returning correct responses using the aferomentioned Postman test collection. Additionally, if a front-end application sending POST request to the microservice is within my organisation, I would aim to perform **integration testing**.
+- In production, I would regularly **monitor the real-time performance** of the microservice by inspecting the log file. 
 
 
