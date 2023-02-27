@@ -10,6 +10,9 @@ I decided to build the microservice in Scala 2.13 using libraries from Scala Typ
 
 I also adopted **MUnit** to perform unit testing, whereas I used **Postman** to test whether the HTTP routes.
 
+The application is built using **sbt**(1.8) and is running on host and port defined in the Config object.
+
+
 ## Architecture
 The diagram below provides a high-level overview of the architecture of the Cardscores microservice.
 
@@ -23,7 +26,6 @@ The service layer contains the `CardScoreService` which implements the business 
 
 It consequently computes the sorting scores for the obtained responses and returns the aggregated and sorted cardScores for each card obtained from partner APIs to be exposed via /creditCards endpoint.
 
-The application is built using sbt and is running on host and port defined in the Config object.
 
 ## Endpoints
 The endpoints provided by the app are as follows:
