@@ -20,7 +20,7 @@ The diagram below provides a high-level overview of the architecture of the Card
 The HTTP layer exposes the `/creditCards` endpoint (defined in `CardscoresRoutes` module) which consumes user's inputs sent via HTTP POST request in JSON format and returns the the aggregated data from partner APIs. 
 
 ### Service Layer
-The service layer contains the `CardScoreService` which implements the business logic. It obtains the parsed user requests' object entities obtained via `CardscoresRoutes`. It consequently uses the data parsed from user requests to generate and send two HTTP POST requests to the partner HTTP APIs  (using http4s Ember client). It subsequently parses the responses from the partner APIs from the obtained JSON format into user response object entities. Finally, it computes the sorting scores for the obtained response object entities and builds custom response which returned to the user via '/creditCards' endpoint.
+The service layer contains the `CardScoreService` which implements the business logic. It obtains the parsed user requests' object entities obtained via `CardscoresRoutes`. It consequently uses the data parsed from user requests to generate and send two HTTP POST requests to the partner HTTP APIs  (using http4s Ember client). It  parses the responses from the partner APIs from the JSON into user response object entities. Finally, it computes the sorting scores for the response object entities and builds custom response which returned to the user via '/creditCards' endpoint.
 
 
 ## Endpoints
