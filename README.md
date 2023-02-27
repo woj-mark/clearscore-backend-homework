@@ -33,7 +33,7 @@ The endpoints provided by the app are as follows:
 | POST | /creditScores   | Returns: `200` with list of collected cards, `400` if inputs are invalid/illegal or `500` if one of the partners is not available/down (see Limitations)|
 
 ## Programming Style 
-I have attempted to adopt purely functional paradigm to arrange the code, model the data domain and implement business logic. I have attempted to adopt tagless final pattern in Scala to organise the code responsibilities between the following modules:
+I adopted purely functional paradigm to arrange the code, model the data domain and implement business logic. I have attempted to use tagless final pattern in Scala to organise the code responsibilities between the following modules:
 - `ClearScoreRoutes` - contains the /creditCards endpoint
 -`CreditCardsService`- contains the  implementation of the business logic for the /creditCards API endpoint, also defines the http4s Client (Ember) sending requests to the partner APIs
 - `ClearScoreServer` - contains the implementation of the http4s server (Ember)
